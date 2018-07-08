@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="false" scan="true" scanPeriod="30 seconds">
+    <contextName>Logback rest sdk</contextName>
+    <property name="LOG_HOME" value="logs/bridge"/>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>[%p] [%thread] %d %C:%L ===>> %m%n</Pattern>
+        </layout>
+    </appender>
+
+    <!-- 按照每天生成日志文件 -->
+    <appender name="ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--日志文件输出的文件名-->
+            <FileNamePattern>${LOG_HOME}/%d{yyyy-MM-dd}.log</FileNamePattern>
+            <!--日志文件保留天数-->
+            <MaxHistory>30</MaxHistory>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <Pattern>[%p] [%thread] %d %C:%L ===>> %m%n</Pattern>
+        </encoder>
+        <!--日志文件最大的大小-->
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <MaxFileSize>512MB</MaxFileSize>
+        </triggeringPolicy>
+    </appender>
+
+    <!--logger name="org.springframework" level="trace" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger-->
+
+    <root level="trace">
+        <appender-ref ref="ROLLING"/>
+    </root>
+
+    <root level="trace">
+        <appender-ref ref="STDOUT"/>
+    </root>
+
+</configuration>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+     <!--mq_producer-->
+    <bean id="producer" class="com.aliyun.openservices.ons.api.bean.ProducerBean" init-method="start"
+          destroy-method="shutdown">
+        <property name="properties">
+            <props>
+                <prop key="ProducerId">PID_Geely</prop>
+                <prop key="AccessKey">LTAIbi4dtkfwhKmG</prop>
+                <prop key="SecretKey">PDkPqDwXBynHMBJeZtxCp60qm8qGC2</prop>
+            </props>
+        </property>
+    </bean>
+
+    <!--redis-->
+    <bean id="redis_conf" class="com.dtdream.DtRecommender.server.entity.RedisConf">
+        <property name="host" value="10.99.3.35"/>
+        <property name="port" value="6379"/>
+        <property name="auth" value="123456"/>
+    </bean>
+
+</beans>

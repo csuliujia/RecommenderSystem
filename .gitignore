@@ -1,0 +1,12 @@
+#idea project conf
+/.idea
+*.iml
+
+#target 
+/logs/
+/bridge/target/
+/mover/target/
+/sdk/target/
+/server/target/
+/common/target/
+/cfgMgr/target/

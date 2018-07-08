@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+    <project>
+        <projectName>geely_tuijian_dev</projectName>
+
+        <task>
+            <mqConsumer>
+                <ConsumerId>CID_x0404</ConsumerId>
+                <AccessKey>LTAIbi4dtkfwhKmG</AccessKey>
+                <SecretKey>PDkPqDwXBynHMBJeZtxCp60qm8qGC2</SecretKey>
+                <ConsumeThreadNums>3</ConsumeThreadNums>
+            </mqConsumer>
+            <topic>Topic_recommender</topic>
+            <tag>action</tag>
+            <table>action3</table>
+            <recordNum>1000<!--odps建议1个block不少于64M数据 >=160000--></recordNum>
+            <commitCycle>3000<!--ms,不宜过长，odps有120s时间限制--></commitCycle>
+        </task>
+
+    </project>
+</config>
